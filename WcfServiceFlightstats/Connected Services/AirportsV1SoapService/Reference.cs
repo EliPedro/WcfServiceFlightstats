@@ -8,6 +8,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+using System.Runtime.Serialization;
+
 namespace WcfServiceFlightstats.AirportsV1SoapService {
     
     
@@ -105,68 +107,103 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://v1.airports.cache.conducivetech.com/")]
+
+
+    [DataContract]
     public partial class airport : object, System.ComponentModel.INotifyPropertyChanged {
         
+        [DataMember]
         private string fsField;
-        
+
+        [DataMember]
         private string iataField;
-        
+
+        [DataMember]
         private string icaoField;
-        
+
+        [DataMember]
         private string faaField;
-        
+
+        [DataMember]
         private string nameField;
-        
+
+        [DataMember]
         private string street1Field;
-        
+
+        [DataMember]
         private string street2Field;
-        
+
+        [DataMember]
         private string cityField;
-        
+
+        [DataMember]
         private string cityCodeField;
-        
+
+        [DataMember]
         private string stateCodeField;
-        
+
+        [DataMember]
         private string postalCodeField;
-        
+
+        [DataMember]
         private string countryCodeField;
-        
+
+        [DataMember]
         private string districtField;
-        
+
+        [DataMember]
         private string countryNameField;
-        
+
+
+        [DataMember]
         private string regionNameField;
-        
+
+        [DataMember]
         private string timeZoneRegionNameField;
-        
+
+        [DataMember]
         private string weatherZoneField;
-        
+
+        [DataMember]
         private string localTimeField;
-        
+
+        [DataMember]
         private double utcOffsetHoursField;
-        
+
+        [DataMember]
         private double latitudeField;
-        
+
+        [DataMember]
         private double longitudeField;
-        
+
+        [DataMember]
         private int elevationFeetField;
-        
+
+        [DataMember]
         private bool elevationFeetFieldSpecified;
-        
+
+        [DataMember]
         private int classificationField;
-        
+
+        [DataMember]
         private bool activeField;
-        
+
+        [DataMember]
         private string dateFromField;
-        
+
+        [DataMember]
         private string dateToField;
-        
+
+        [DataMember]
         private string weatherUrlField;
-        
+
+        [DataMember]
         private string delayIndexUrlField;
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string fs {
             get {
                 return this.fsField;
@@ -179,6 +216,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string iata {
             get {
                 return this.iataField;
@@ -191,6 +230,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string icao {
             get {
                 return this.icaoField;
@@ -203,6 +244,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string faa {
             get {
                 return this.faaField;
@@ -215,6 +258,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string name {
             get {
                 return this.nameField;
@@ -227,6 +272,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string street1 {
             get {
                 return this.street1Field;
@@ -239,6 +286,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string street2 {
             get {
                 return this.street2Field;
@@ -251,6 +300,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string city {
             get {
                 return this.cityField;
@@ -263,6 +314,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string cityCode {
             get {
                 return this.cityCodeField;
@@ -275,6 +328,9 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+
+        [DataMember]
         public string stateCode {
             get {
                 return this.stateCodeField;
@@ -287,6 +343,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string postalCode {
             get {
                 return this.postalCodeField;
@@ -299,6 +357,9 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+
+        [DataMember]
         public string countryCode {
             get {
                 return this.countryCodeField;
@@ -311,6 +372,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string district {
             get {
                 return this.districtField;
@@ -323,6 +386,10 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+
+
+        [DataMember]
         public string countryName {
             get {
                 return this.countryNameField;
@@ -335,6 +402,10 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+
+
+        [DataMember]
         public string regionName {
             get {
                 return this.regionNameField;
@@ -347,6 +418,8 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+        [DataMember]
         public string timeZoneRegionName {
             get {
                 return this.timeZoneRegionNameField;
@@ -359,6 +432,9 @@ namespace WcfServiceFlightstats.AirportsV1SoapService {
         
         /// <remarks/>
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
+
+
+        [DataMember]
         public string weatherZone {
             get {
                 return this.weatherZoneField;
