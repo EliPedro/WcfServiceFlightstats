@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://v1.airports.cache.conducivetech.com/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" name="AirportsV1SoapService" targetNamespace="http://v1.airports.cache.conducivetech.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://v1.airports.cache.conducivetech.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="airportByFsCode" type="tns:airportByFsCode" />
+      <xs:element name="airportByFsCodeResponse" type="tns:airportByFsCodeResponse" />
+      <xs:element name="airportByIata" type="tns:airportByIata" />
+      <xs:element name="airportByIataResponse" type="tns:airportByIataResponse" />
+      <xs:element name="airportByIcao" type="tns:airportByIcao" />
+      <xs:element name="airportByIcaoResponse" type="tns:airportByIcaoResponse" />
+      <xs:element name="airports" type="tns:airports" />
+      <xs:element name="airportsByIata" type="tns:airportsByIata" />
+      <xs:element name="airportsByIataResponse" type="tns:airportsByIataResponse" />
+      <xs:element name="airportsByIcao" type="tns:airportsByIcao" />
+      <xs:element name="airportsByIcaoResponse" type="tns:airportsByIcaoResponse" />
+      <xs:element name="airportsResponse" type="tns:airportsResponse" />
+      <xs:element name="allAirports" type="tns:allAirports" />
+      <xs:element name="allAirportsResponse" type="tns:allAirportsResponse" />
+      <xs:element name="anyCode_airportForDay" type="tns:anyCode_airportForDay" />
+      <xs:element name="anyCode_airportForDayResponse" type="tns:anyCode_airportForDayResponse" />
+      <xs:element name="anyCode_currentAirport" type="tns:anyCode_currentAirport" />
+      <xs:element name="anyCode_currentAirportResponse" type="tns:anyCode_currentAirportResponse" />
+      <xs:element name="cityCode_airports" type="tns:cityCode_airports" />
+      <xs:element name="cityCode_airportsResponse" type="tns:cityCode_airportsResponse" />
+      <xs:element name="countryCode_airports" type="tns:countryCode_airports" />
+      <xs:element name="countryCode_airportsResponse" type="tns:countryCode_airportsResponse" />
+      <xs:element name="currentAirports" type="tns:currentAirports" />
+      <xs:element name="currentAirportsResponse" type="tns:currentAirportsResponse" />
+      <xs:element name="radius_airports" type="tns:radius_airports" />
+      <xs:element name="radius_airportsResponse" type="tns:radius_airportsResponse" />
+      <xs:complexType name="anyCode_airportForDay">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element name="year" type="xs:int" />
+          <xs:element name="month" type="xs:int" />
+          <xs:element name="day" type="xs:int" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="anyCode_airportForDayResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airport" final="extension restriction">
+        <xs:all>
+          <xs:element minOccurs="0" name="fs" type="xs:string" />
+          <xs:element minOccurs="0" name="iata" type="xs:string" />
+          <xs:element minOccurs="0" name="icao" type="xs:string" />
+          <xs:element minOccurs="0" name="faa" type="xs:string" />
+          <xs:element minOccurs="0" name="name" type="xs:string" />
+          <xs:element minOccurs="0" name="street1" type="xs:string" />
+          <xs:element minOccurs="0" name="street2" type="xs:string" />
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="cityCode" type="xs:string" />
+          <xs:element minOccurs="0" name="stateCode" type="xs:string" />
+          <xs:element minOccurs="0" name="postalCode" type="xs:string" />
+          <xs:element minOccurs="0" name="countryCode" type="xs:string" />
+          <xs:element minOccurs="0" name="district" type="xs:string" />
+          <xs:element minOccurs="0" name="countryName" type="xs:string" />
+          <xs:element minOccurs="0" name="regionName" type="xs:string" />
+          <xs:element minOccurs="0" name="timeZoneRegionName" type="xs:string" />
+          <xs:element minOccurs="0" name="weatherZone" type="xs:string" />
+          <xs:element minOccurs="0" name="localTime" type="xs:string" />
+          <xs:element name="utcOffsetHours" type="xs:double" />
+          <xs:element name="latitude" type="xs:double" />
+          <xs:element name="longitude" type="xs:double" />
+          <xs:element minOccurs="0" name="elevationFeet" type="xs:int" />
+          <xs:element name="classification" type="xs:int" />
+          <xs:element name="active" type="xs:boolean" />
+          <xs:element minOccurs="0" name="dateFrom" type="xs:string" />
+          <xs:element minOccurs="0" name="dateTo" type="xs:string" />
+          <xs:element minOccurs="0" name="weatherUrl" type="xs:string" />
+          <xs:element minOccurs="0" name="delayIndexUrl" type="xs:string" />
+        </xs:all>
+      </xs:complexType>
+      <xs:complexType name="airportByIcao">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="icaoCode" type="xs:string" />
+          <xs:element name="year" type="xs:int" />
+          <xs:element name="month" type="xs:int" />
+          <xs:element name="day" type="xs:int" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airportByIcaoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airportsByIata">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="iataCode" type="xs:string" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airportsByIataResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airportsByIcao">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="icaoCode" type="xs:string" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airportsByIcaoResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="countryCode_airports">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="countryCode" type="xs:string" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="countryCode_airportsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="allAirports">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="allAirportsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="anyCode_currentAirport">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="anyCode_currentAirportResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airports">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="year" type="xs:int" />
+          <xs:element name="month" type="xs:int" />
+          <xs:element name="day" type="xs:int" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airportsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airportByFsCode">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="code" type="xs:string" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airportByFsCodeResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="radius_airports">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="longitude" type="xs:string" />
+          <xs:element name="latitude" type="xs:string" />
+          <xs:element name="radiusMiles" type="xs:string" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="radius_airportsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airportByIata">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="iataCode" type="xs:string" />
+          <xs:element name="year" type="xs:int" />
+          <xs:element name="month" type="xs:int" />
+          <xs:element name="day" type="xs:int" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="airportByIataResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="currentAirports">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="currentAirportsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cityCode_airports">
+        <xs:sequence>
+          <xs:element name="appId" type="xs:string" />
+          <xs:element name="appKey" type="xs:string" />
+          <xs:element name="cityCode" type="xs:string" />
+          <xs:element minOccurs="0" name="extendedOptions" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="cityCode_airportsResponse">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:airport" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="APIException" type="tns:APIException" />
+      <xs:complexType name="APIException">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="errorCode" type="xs:string" />
+          <xs:element minOccurs="0" name="errorId" type="xs:string" />
+          <xs:element minOccurs="0" name="httpStatusCode" type="xs:int" />
+          <xs:element minOccurs="0" name="errorMessage" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="airportsByIataResponse">
+    <wsdl:part name="parameters" element="tns:airportsByIataResponse" />
+  </wsdl:message>
+  <wsdl:message name="anyCode_airportForDay">
+    <wsdl:part name="parameters" element="tns:anyCode_airportForDay" />
+  </wsdl:message>
+  <wsdl:message name="airportByIcao">
+    <wsdl:part name="parameters" element="tns:airportByIcao" />
+  </wsdl:message>
+  <wsdl:message name="airportByFsCodeResponse">
+    <wsdl:part name="parameters" element="tns:airportByFsCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="airportsByIata">
+    <wsdl:part name="parameters" element="tns:airportsByIata" />
+  </wsdl:message>
+  <wsdl:message name="airportsByIcao">
+    <wsdl:part name="parameters" element="tns:airportsByIcao" />
+  </wsdl:message>
+  <wsdl:message name="countryCode_airports">
+    <wsdl:part name="parameters" element="tns:countryCode_airports" />
+  </wsdl:message>
+  <wsdl:message name="airportByIataResponse">
+    <wsdl:part name="parameters" element="tns:airportByIataResponse" />
+  </wsdl:message>
+  <wsdl:message name="allAirports">
+    <wsdl:part name="parameters" element="tns:allAirports" />
+  </wsdl:message>
+  <wsdl:message name="radius_airports">
+    <wsdl:part name="parameters" element="tns:radius_airports" />
+  </wsdl:message>
+  <wsdl:message name="airportByIata">
+    <wsdl:part name="parameters" element="tns:airportByIata" />
+  </wsdl:message>
+  <wsdl:message name="airportsByIcaoResponse">
+    <wsdl:part name="parameters" element="tns:airportsByIcaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="radius_airportsResponse">
+    <wsdl:part name="parameters" element="tns:radius_airportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="currentAirports">
+    <wsdl:part name="parameters" element="tns:currentAirports" />
+  </wsdl:message>
+  <wsdl:message name="cityCode_airports">
+    <wsdl:part name="parameters" element="tns:cityCode_airports" />
+  </wsdl:message>
+  <wsdl:message name="airportByIcaoResponse">
+    <wsdl:part name="parameters" element="tns:airportByIcaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="airportsResponse">
+    <wsdl:part name="parameters" element="tns:airportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="anyCode_currentAirport">
+    <wsdl:part name="parameters" element="tns:anyCode_currentAirport" />
+  </wsdl:message>
+  <wsdl:message name="airports">
+    <wsdl:part name="parameters" element="tns:airports" />
+  </wsdl:message>
+  <wsdl:message name="airportByFsCode">
+    <wsdl:part name="parameters" element="tns:airportByFsCode" />
+  </wsdl:message>
+  <wsdl:message name="currentAirportsResponse">
+    <wsdl:part name="parameters" element="tns:currentAirportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="APIException">
+    <wsdl:part name="APIException" element="tns:APIException" />
+  </wsdl:message>
+  <wsdl:message name="anyCode_currentAirportResponse">
+    <wsdl:part name="parameters" element="tns:anyCode_currentAirportResponse" />
+  </wsdl:message>
+  <wsdl:message name="cityCode_airportsResponse">
+    <wsdl:part name="parameters" element="tns:cityCode_airportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="allAirportsResponse">
+    <wsdl:part name="parameters" element="tns:allAirportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="anyCode_airportForDayResponse">
+    <wsdl:part name="parameters" element="tns:anyCode_airportForDayResponse" />
+  </wsdl:message>
+  <wsdl:message name="countryCode_airportsResponse">
+    <wsdl:part name="parameters" element="tns:countryCode_airportsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="airportsService">
+    <wsdl:operation name="anyCode_airportForDay">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_airportForDayRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_airportForDayRequest" name="anyCode_airportForDay" message="tns:anyCode_airportForDay" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_airportForDayResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_airportForDayResponse" name="anyCode_airportForDayResponse" message="tns:anyCode_airportForDayResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_airportForDay/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="airportByIcao">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByIcaoRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByIcaoRequest" name="airportByIcao" message="tns:airportByIcao" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByIcaoResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByIcaoResponse" name="airportByIcaoResponse" message="tns:airportByIcaoResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByIcao/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="airportsByIata">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIataRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIataRequest" name="airportsByIata" message="tns:airportsByIata" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIataResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIataResponse" name="airportsByIataResponse" message="tns:airportsByIataResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIata/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="airportsByIcao">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIcaoRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIcaoRequest" name="airportsByIcao" message="tns:airportsByIcao" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIcaoResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIcaoResponse" name="airportsByIcaoResponse" message="tns:airportsByIcaoResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIcao/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="countryCode_airports">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/countryCode_airportsRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/countryCode_airportsRequest" name="countryCode_airports" message="tns:countryCode_airports" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/countryCode_airportsResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/countryCode_airportsResponse" name="countryCode_airportsResponse" message="tns:countryCode_airportsResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/countryCode_airports/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="allAirports">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/allAirportsRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/allAirportsRequest" name="allAirports" message="tns:allAirports" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/allAirportsResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/allAirportsResponse" name="allAirportsResponse" message="tns:allAirportsResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/allAirports/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="anyCode_currentAirport">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_currentAirportRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_currentAirportRequest" name="anyCode_currentAirport" message="tns:anyCode_currentAirport" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_currentAirportResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_currentAirportResponse" name="anyCode_currentAirportResponse" message="tns:anyCode_currentAirportResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_currentAirport/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="airports">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsRequest" name="airports" message="tns:airports" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportsResponse" name="airportsResponse" message="tns:airportsResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airports/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="airportByFsCode">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByFsCodeRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByFsCodeRequest" name="airportByFsCode" message="tns:airportByFsCode" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByFsCodeResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByFsCodeResponse" name="airportByFsCodeResponse" message="tns:airportByFsCodeResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByFsCode/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="radius_airports">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/radius_airportsRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/radius_airportsRequest" name="radius_airports" message="tns:radius_airports" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/radius_airportsResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/radius_airportsResponse" name="radius_airportsResponse" message="tns:radius_airportsResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/radius_airports/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="airportByIata">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByIataRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByIataRequest" name="airportByIata" message="tns:airportByIata" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByIataResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByIataResponse" name="airportByIataResponse" message="tns:airportByIataResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/airportByIata/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="currentAirports">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/currentAirportsRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/currentAirportsRequest" name="currentAirports" message="tns:currentAirports" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/currentAirportsResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/currentAirportsResponse" name="currentAirportsResponse" message="tns:currentAirportsResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/currentAirports/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+    <wsdl:operation name="cityCode_airports">
+      <wsdl:input wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/cityCode_airportsRequest" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/cityCode_airportsRequest" name="cityCode_airports" message="tns:cityCode_airports" />
+      <wsdl:output wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/cityCode_airportsResponse" wsaw:Action="http://v1.airports.cache.conducivetech.com/airportsService/cityCode_airportsResponse" name="cityCode_airportsResponse" message="tns:cityCode_airportsResponse" />
+      <wsdl:fault wsam:Action="http://v1.airports.cache.conducivetech.com/airportsService/cityCode_airports/Fault/APIException" name="APIException" message="tns:APIException" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AirportsV1SoapServiceSoapBinding" type="tns:airportsService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="anyCode_airportForDay">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_airportForDayRequest" style="document" />
+      <wsdl:input name="anyCode_airportForDay">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="anyCode_airportForDayResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="airportByIcao">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/airportByIcaoRequest" style="document" />
+      <wsdl:input name="airportByIcao">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="airportByIcaoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="airportsByIata">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIataRequest" style="document" />
+      <wsdl:input name="airportsByIata">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="airportsByIataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="airportsByIcao">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/airportsByIcaoRequest" style="document" />
+      <wsdl:input name="airportsByIcao">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="airportsByIcaoResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="countryCode_airports">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/countryCode_airportsRequest" style="document" />
+      <wsdl:input name="countryCode_airports">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="countryCode_airportsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="allAirports">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/allAirportsRequest" style="document" />
+      <wsdl:input name="allAirports">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="allAirportsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="anyCode_currentAirport">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/anyCode_currentAirportRequest" style="document" />
+      <wsdl:input name="anyCode_currentAirport">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="anyCode_currentAirportResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="airports">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/airportsRequest" style="document" />
+      <wsdl:input name="airports">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="airportsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="airportByFsCode">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/airportByFsCodeRequest" style="document" />
+      <wsdl:input name="airportByFsCode">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="airportByFsCodeResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="radius_airports">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/radius_airportsRequest" style="document" />
+      <wsdl:input name="radius_airports">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="radius_airportsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="airportByIata">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/airportByIataRequest" style="document" />
+      <wsdl:input name="airportByIata">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="airportByIataResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="currentAirports">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/currentAirportsRequest" style="document" />
+      <wsdl:input name="currentAirports">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="currentAirportsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="cityCode_airports">
+      <soap:operation soapAction="http://v1.airports.cache.conducivetech.com/airportsService/cityCode_airportsRequest" style="document" />
+      <wsdl:input name="cityCode_airports">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="cityCode_airportsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="APIException">
+        <soap:fault use="literal" name="APIException" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AirportsV1SoapService">
+    <wsdl:port name="airportsServicePort" binding="tns:AirportsV1SoapServiceSoapBinding">
+      <soap:address location="https://api.flightstats.com/flex/airports/soap/v1/airportsService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
