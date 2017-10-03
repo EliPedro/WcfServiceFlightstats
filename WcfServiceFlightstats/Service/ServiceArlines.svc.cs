@@ -4,8 +4,9 @@ using WcfServiceFlightstats.AirportsV1SoapService;
 using WcfServiceFlightstats.AirportSoapApiService;
 using System.ServiceModel.Activation;
 using System.Configuration;
-using System.Xml.Serialization;
 using System.Linq;
+using System;
+using System.Collections.Generic;
 
 namespace WcfServiceFlightstats.Service
 {
@@ -19,12 +20,10 @@ namespace WcfServiceFlightstats.Service
         private string _appId = ConfigurationManager.AppSettings["appId"];
         private string _appKey = ConfigurationManager.AppSettings["appKey"];
         private string _extendedOptions = ConfigurationManager.AppSettings["extendedOptions"];
-
-
-
-        public airport[] ObterDescricaoAeroportosDeterminadoPais(string codigo = "BR")
+        
+        public airport[] ObterDescricaoAeroportosDeterminadoPais(string codigo)
         {
-            return ObterAirportsServiceClient().countryCode_airports(_appId, _appKey, "BR", _extendedOptions);
+            return ObterAirportsServiceClient().countryCode_airports(_appId, _appKey, codigo, _extendedOptions);
         }
 
         public airline[] ObterTodasCompanhiasAereas()
@@ -32,14 +31,37 @@ namespace WcfServiceFlightstats.Service
             return ObterAirlineServiceClient().allAirlines(_appId, _appKey, _extendedOptions);
         }
 
-        public flightStatusV2[] ObterChegadasVoos(string airport = "CGH", int year = 2017, int month = 9, int day = 30, int hourOfday = 18, int numHour = 1, bool utc = false, string carrier = "", string codTtpe = "", int maxFlight = 5)
+        public List<flightStatusV2> ObterChegadasVoos()
         {
-            return ObterairportServiceClientApi().airportStatus_arr(_appId, _appKey, airport, year, month, day, hourOfday, false, numHour, carrier, codTtpe, maxFlight, _extendedOptions).flightStatuses;
+            string airport = "CGH";
+            int year = 2017;
+            int month = 9;
+            int day = 30;
+            int hourOfday = 18;
+            int numHour = 1;
+            bool utc = false;
+            string carrier = "";
+            string codTtpe = "";
+            int maxFlight = 5;
+
+            return ObterairportServiceClientApi().airportStatus_arr(_appId, _appKey, airport, year, month, day, hourOfday, false, numHour, carrier, codTtpe, maxFlight, _extendedOptions).flightStatuses.ToList();
         }
 
-        public flightStatusV2[] ObterPartidasVoos(string airport = "CGH", int year = 2017, int month = 9, int day = 30, int hourOfday = 18, int numHour = 1, bool utc = false, string carrier = "", string codTtpe = "", int maxFlight = 5)
+        public List<flightStatusV2> ObterPartidasVoos()
         {
-            return ObterairportServiceClientApi().airportStatus_dep(_appId, _appKey, airport, year, month, day, hourOfday, false, numHour, carrier, codTtpe, maxFlight, _extendedOptions).flightStatuses.ToArray();
+            string airport = "CGH";
+            int year = 2017;
+            int month = 9;
+            int day = 30;
+            int hourOfday = 18;
+            int numHour = 1;
+            bool utc = false;
+            string carrier = "";
+            string codTtpe = "";
+            int maxFlight = 5;
+
+            return ObterairportServiceClientApi().airportStatus_dep(_appId, _appKey, airport, year, month, day, hourOfday, false, numHour, carrier, codTtpe, maxFlight, _extendedOptions).flightStatuses.ToList();
+
         }
 
         private airlinesServiceClient ObterAirlineServiceClient()
@@ -61,7 +83,6 @@ namespace WcfServiceFlightstats.Service
             if (_airportServiceClientApi == null) return new airportServiceClient();
 
             return _airportServiceClientApi;
-        }
-
+        }       
     }
 }
